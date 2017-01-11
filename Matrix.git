@@ -1,0 +1,34 @@
+Matrix rotMh = SharpDX.Matrix.RotationY((float)(e.Yaw + (1.6) - Math.PI / 2));
+                //draw skeleton
+                if (e.Type == 0x04 || e.Type == 0x05 || e.Type == 0x10E)  //only draw skeleton if current entity is a player
+                {
+                    foreach (Bone[] part in skeleton)
+                    {
+                        Vector2 currentPoint = new Vector2();
+                        foreach (Bone b in part)
+                        {
+                            bonePos = e.GetBone((int)b);
+                            bonePos = Vector3.TransformCoordinate(bonePos, rotMh) + e.Position;
+                            Vector2 h = W2S(bonePos);
+ 
+                            if (currentPoint.X == 0)
+                            {
+                                currentPoint = h;
+                                continue;
+                            }
+                            else  //draw line from current point to next point
+                            {
+                                SharpDX.Color c = SharpDX.Color.GreenYellow;
+                                DrawLine(currentPoint.X, currentPoint.Y, h.X, h.Y, 1, c);
+                                currentPoint = h;
+                            }
+                        }
+                    }
+                    foreach (Bone b in skeletonPOI)  //
+                    {
+                        bonePos = e.GetBone((int)b);
+                        bonePos = Vector3.TransformCoordinate(bonePos, rotMh) + e.Position;
+                        Vector2 h = W2S(bonePos);
+                        DrawCircle(h, 3, 3, SharpDX.Color.Magenta, 90);
+                    }
+                }

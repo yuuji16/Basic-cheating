@@ -1,0 +1,24 @@
+ static Bone[] skeletonPOI = new Bone[] {
+            Bone.head, Bone.L_wrist, Bone.R_wrist, Bone.L_ankle, Bone.R_ankle
+        };
+        static Bone[] skeletonUpper = new Bone[] {
+            Bone.hat, Bone.head, Bone.neck,
+        };
+        static Bone[] skeletonRightArm = new Bone[] {
+            Bone.neck, Bone.R_shoulder, Bone.R_elbow, Bone.R_wrist
+        };
+        static Bone[] skeletonLeftArm = new Bone[] {
+            Bone.neck, Bone.L_shoulder, Bone.L_elbow, Bone.L_wrist
+        };
+        static Bone[] skeletonSpine = new Bone[] {
+            Bone.neck, Bone.spineUpper, Bone.spineMiddle, Bone.spineLower
+        };
+        static Bone[] skeletonLowerRight = new Bone[] {
+            Bone.spineLower, Bone.R_hip, Bone.R_knee, Bone.R_ankle, Bone.R_toe
+        };
+        static Bone[] skeletonLowerLeft = new Bone[] {
+            Bone.spineLower, Bone.L_hip, Bone.L_knee, Bone.L_ankle, Bone.L_toe
+        };
+        static Bone[][] skeleton = new Bone[][] {
+            skeletonUpper, skeletonLeftArm, skeletonRightArm, skeletonSpine, skeletonLowerRight, skeletonLowerLeft
+        };
